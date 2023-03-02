@@ -22,12 +22,6 @@
 							<div class="box-content">
 								<form action="<?php echo base_url(); ?>user/updatePass/<?php echo $this->session->userID; ?>" method="POST" class='form-horizontal form-validate' id="bb">
 									<div class="form-group">
-										<label for="oldpass" class="control-label col-sm-2">Old password</label>
-										<div class="col-sm-3">
-											<input width="50%" type="password" name="oldpass" id="oldpass" class="form-control" data-rule-required="true" data-rule-minlength="2">
-										</div>
-									</div>
-									<div class="form-group">
 										<label for="newpass" class="control-label col-sm-2">New password</label>
 										<div class="col-sm-3">
 											<input width="50%" type="password" name="newpass" id="newpass" class="form-control" data-rule-required="true">

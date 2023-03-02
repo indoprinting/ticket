@@ -190,14 +190,11 @@ class User extends CI_Controller {
 
 	public function updatePass($id)
 	{
-		$pass1 = hash('sha1', md5($_POST['oldpass']));
-		$data['password'] = hash('sha1', md5($_POST['newpass']));
+		$data['password'] = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
 
-		$user = $this->user_model->getUserById($id)->row();
+		$update = $this->user_model->editUser($id, $data);
 
-		if($user->password==$pass1){
-			$update = $this->user_model->editUser($id, $data);
-
+		if($update){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','Change Password successfully');
 			redirect('user/changepass');

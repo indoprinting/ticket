@@ -17,11 +17,11 @@ class Login extends CI_Controller {
 	public function login_process()
 	{
 		$user = $_POST['username'];
-		$pass = hash('sha1', md5($_POST['password']));
+		$pass = $_POST['password'];
 		
 		$data = $this->login_model->getUser($user, $pass);
 
-		if($data->num_rows() > 0){
+		if($data && $data->num_rows() > 0){
 			$user = $data->row();
 
 			$this->session->set_userdata('isLogin', true);
