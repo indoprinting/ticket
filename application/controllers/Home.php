@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 		$this->load->model("ticket_model");
 		$this->load->model("user_model");
 		if(!$this->session->isLogin){
-			redirect(base_url());
+			redirect_to(base_url());
 		}
 	}
 

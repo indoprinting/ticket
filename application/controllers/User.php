@@ -9,7 +9,7 @@ class User extends CI_Controller {
 		$this->load->model("user_model");
 		$this->load->model("ticket_model");
 		if(!$this->session->isLogin){
-			redirect(base_url());
+			redirect_to(base_url());
 		}
 	}
 
@@ -56,11 +56,11 @@ class User extends CI_Controller {
 		if($insert1>0){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','Ticket successfully created');
-			redirect('ticket');
+			redirect_to('ticket');
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','Ticket failed to be created');
-			redirect('ticket');
+			redirect_to('ticket');
 		}
 		
 	}
@@ -106,11 +106,11 @@ class User extends CI_Controller {
 			if($update){
 				$this->session->set_flashdata('status','success');
 				$this->session->set_flashdata('message','Ticket successfully updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			} else {
 				$this->session->set_flashdata('status','danger');
 				$this->session->set_flashdata('message','Ticket failed to be updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			}
 
 		} elseif ($_POST['assign_id']!=''){
@@ -132,11 +132,11 @@ class User extends CI_Controller {
 			if($update){
 				$this->session->set_flashdata('status','success');
 				$this->session->set_flashdata('message','Ticket successfully updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			} else {
 				$this->session->set_flashdata('status','danger');
 				$this->session->set_flashdata('message','Ticket failed to be updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			}
 
 		} elseif ($_POST['status']!=''){
@@ -162,17 +162,17 @@ class User extends CI_Controller {
 			if($update){
 				$this->session->set_flashdata('status','success');
 				$this->session->set_flashdata('message','Ticket successfully updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			} else {
 				$this->session->set_flashdata('status','danger');
 				$this->session->set_flashdata('message','Ticket failed to be updated');
-				redirect('ticket/edit/'.$id);
+				redirect_to('ticket/edit/'.$id);
 			}
 
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','Something went wrong, please try again');
-			redirect('ticket/edit/'.$id);
+			redirect_to('ticket/edit/'.$id);
 		}
 	}
 
@@ -197,11 +197,11 @@ class User extends CI_Controller {
 		if($update){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','Change Password successfully');
-			redirect('user/changepass');
+			redirect_to('user/changepass');
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','Wrong Old Password');
-			redirect('user/changepass');
+			redirect_to('user/changepass');
 		}
 
 	}

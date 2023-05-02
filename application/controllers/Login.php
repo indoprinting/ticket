@@ -32,16 +32,16 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('username', $user->username);
 
 			// if($user->roles_id==1){
-			// 	redirect('home');
+			// 	redirect_to('home');
 			// } elseif($user->roles_id==2){
-			// 	redirect('karyawan');
+			// 	redirect_to('karyawan');
 			// } if($user->roles_id==3){
-			// 	redirect('pelanggan');
+			// 	redirect_to('pelanggan');
 			// } 
-			redirect('ticket');
+			redirect_to('ticket');
 		} else {
 			$this->session->set_flashdata('message','username dan password tidak ditemukan');
-			redirect('login');
+			redirect_to('login');
 		}
 		
 	}
@@ -49,7 +49,7 @@ class Login extends CI_Controller {
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect_to('login');
 	}
 
 //	public function test()

@@ -8,7 +8,7 @@ class Knowledge extends CI_Controller {
 		parent::__construct();
 		$this->load->model("master_model");
 		if(!$this->session->isLogin){
-			redirect(base_url());
+			redirect_to(base_url());
 		}
 	}
 

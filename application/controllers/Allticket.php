@@ -17,7 +17,7 @@ class Allticket extends CI_Controller {
 		$this->load->model("ticket_model");
 		$this->load->model("user_model");
 		if(!$this->session->isLogin){
-			redirect(base_url());
+			redirect_to(base_url());
 		}
 	}
 
@@ -70,7 +70,7 @@ class Allticket extends CI_Controller {
 	        {
 				$this->session->set_flashdata('status','success');
 				$this->session->set_flashdata('message','File upload error, please try again.');
-				redirect('ticket');
+				redirect_to('ticket');
 	        }
 		}
 
@@ -116,11 +116,11 @@ class Allticket extends CI_Controller {
 		if($insert1>0){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','Ticket successfully created');
-			redirect('allticket');
+			redirect_to('allticket');
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','Ticket failed to be created');
-			redirect('allticket');
+			redirect_to('allticket');
 		}
 		
 	}
@@ -171,7 +171,7 @@ class Allticket extends CI_Controller {
 	        {
 				$this->session->set_flashdata('status','success');
 				$this->session->set_flashdata('message','File upload error, please try again.');
-				redirect('allticket/edit/'.$id);
+				redirect_to('allticket/edit/'.$id);
 	        }
 		}
 
@@ -300,11 +300,11 @@ class Allticket extends CI_Controller {
 		if($update){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','Ticket successfully updated');
-			redirect('allticket/edit/'.$id);
+			redirect_to('allticket/edit/'.$id);
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','Ticket failed to be updated');
-			redirect('allticket/edit/'.$id);
+			redirect_to('allticket/edit/'.$id);
 		}
 
 	}
@@ -330,11 +330,11 @@ class Allticket extends CI_Controller {
 		if($insert>0){
 			$this->session->set_flashdata('status','success');
 			$this->session->set_flashdata('message','You successfully reply a message');
-			redirect('allticket/edit/'.$id);
+			redirect_to('allticket/edit/'.$id);
 		} else {
 			$this->session->set_flashdata('status','danger');
 			$this->session->set_flashdata('message','You failed to reply a message');
-			redirect('allticket/edit/'.$id);
+			redirect_to('allticket/edit/'.$id);
 		}
 	}
 

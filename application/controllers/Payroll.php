@@ -18,7 +18,7 @@ class Payroll extends CI_Controller
 		$this->load->helper(array('url', 'download'));
 		$this->load->model("Payroll_model");
 		if (!$this->session->isLogin) {
-			redirect(base_url());
+			redirect_to(base_url());
 		}
 	}
 
@@ -50,11 +50,11 @@ class Payroll extends CI_Controller
 		if ($update) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Input Data Save');
-			redirect('payroll/payrollsheet');
+			redirect_to('payroll/payrollsheet');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Input Data failed to Save');
-			redirect('payroll/payrollsheet');
+			redirect_to('payroll/payrollsheet');
 		}
 	}
 
@@ -66,11 +66,11 @@ class Payroll extends CI_Controller
 		if ($delete) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Employee successfully deleted');
-			redirect('payroll/payrollemployee');
+			redirect_to('payroll/payrollemployee');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Employee failed to deleted');
-			redirect('payroll/payrollemployee');
+			redirect_to('payroll/payrollemployee');
 		}
 	}
 
@@ -83,11 +83,11 @@ class Payroll extends CI_Controller
 		if ($insert) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Employee successfully created');
-			redirect('payroll/payrollemployee');
+			redirect_to('payroll/payrollemployee');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Employee failed to created');
-			redirect('payroll/payrollemployee');
+			redirect_to('payroll/payrollemployee');
 		}
 	}
 
@@ -99,11 +99,11 @@ class Payroll extends CI_Controller
 		if ($update) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Employee successfully update');
-			redirect('Payroll/payrollemployee');
+			redirect_to('Payroll/payrollemployee');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Employee failed to update');
-			redirect('Payroll/payrollemployee');
+			redirect_to('Payroll/payrollemployee');
 		}
 	}
 
@@ -116,11 +116,11 @@ class Payroll extends CI_Controller
 		if ($insert) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Violation successfully created');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Violation failed to created');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		}
 	}
 
@@ -132,11 +132,11 @@ class Payroll extends CI_Controller
 		if ($update) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Violation successfully update');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Violation failed to update');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		}
 	}
 
@@ -148,11 +148,11 @@ class Payroll extends CI_Controller
 		if ($delete) {
 			$this->session->set_flashdata('status', 'success');
 			$this->session->set_flashdata('message', 'Violation successfully deleted');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		} else {
 			$this->session->set_flashdata('status', 'danger');
 			$this->session->set_flashdata('message', 'Violation failed to deleted');
-			redirect('payroll/payrollviolation');
+			redirect_to('payroll/payrollviolation');
 		}
 	}
 
@@ -309,7 +309,7 @@ class Payroll extends CI_Controller
 			if (!$this->upload->do_upload('attachment')) {
 				$this->session->set_flashdata('status', 'danger');
 				$this->session->set_flashdata('message', 'File upload error, please try again.');
-				redirect('payroll/hro');
+				redirect_to('payroll/hro');
 			}
 		}
 
@@ -366,7 +366,7 @@ class Payroll extends CI_Controller
 
 		$this->session->set_flashdata('status', 'success');
 		$this->session->set_flashdata('message', 'Upload data Successfully');
-		redirect('payroll/hro');
+		redirect_to('payroll/hro');
 	}
 
 
@@ -388,7 +388,7 @@ class Payroll extends CI_Controller
 			if (!$this->upload->do_upload('attachment')) {
 				$this->session->set_flashdata('status', 'danger');
 				$this->session->set_flashdata('message', 'File upload error, please try again.');
-				redirect('payroll/mgr');
+				redirect_to('payroll/mgr');
 			}
 		}
 
@@ -440,7 +440,7 @@ class Payroll extends CI_Controller
 
 		$this->session->set_flashdata('status', 'success');
 		$this->session->set_flashdata('message', 'Upload data Successfully');
-		redirect('payroll/mgr');
+		redirect_to('payroll/mgr');
 	}
 
 	public function addIc()
@@ -461,7 +461,7 @@ class Payroll extends CI_Controller
 			if (!$this->upload->do_upload('attachment')) {
 				$this->session->set_flashdata('status', 'danger');
 				$this->session->set_flashdata('message', 'File upload error, please try again.');
-				redirect('payroll/ic');
+				redirect_to('payroll/ic');
 			}
 		}
 
@@ -515,7 +515,7 @@ class Payroll extends CI_Controller
 
 		$this->session->set_flashdata('status', 'success');
 		$this->session->set_flashdata('message', 'Upload data Successfully');
-		redirect('payroll/ic');
+		redirect_to('payroll/ic');
 	}
 
 	public function addAr()
@@ -536,7 +536,7 @@ class Payroll extends CI_Controller
 			if (!$this->upload->do_upload('attachment')) {
 				$this->session->set_flashdata('status', 'danger');
 				$this->session->set_flashdata('message', 'File upload error, please try again.');
-				redirect('payroll/ar');
+				redirect_to('payroll/ar');
 			}
 		}
 
@@ -590,7 +590,7 @@ class Payroll extends CI_Controller
 
 		$this->session->set_flashdata('status', 'success');
 		$this->session->set_flashdata('message', 'Upload data Successfully');
-		redirect('payroll/ar');
+		redirect_to('payroll/ar');
 	}
 
 	public function addUpemployee()
@@ -611,7 +611,7 @@ class Payroll extends CI_Controller
 			if (!$this->upload->do_upload('attachment')) {
 				$this->session->set_flashdata('status', 'danger');
 				$this->session->set_flashdata('message', 'File upload error, please try again.');
-				redirect('payroll/up_employee');
+				redirect_to('payroll/up_employee');
 			}
 		}
 
@@ -691,7 +691,7 @@ class Payroll extends CI_Controller
 
 		$this->session->set_flashdata('status', 'success');
 		$this->session->set_flashdata('message', 'Upload data Successfully');
-		redirect('payroll/up_employee');
+		redirect_to('payroll/up_employee');
 	}
 
 	public function downloadhro()
